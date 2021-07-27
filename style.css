@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2F4F4F;
+    min-height: 100vh;
+}
+
+.container {
+    display: inline-flex;
+}
+
+.container .static-text {
+    color: #fff;
+    font-size: 60px;
+}
+
+.container .dynamic-text {
+    margin-left: 20px;
+    line-height: 90px;
+    height: 60px;
+    overflow: hidden;
+    /* hide elements that was scrolled*/
+
+}
+
+.dynamic-text li {
+    padding-left: 9px;
+    margin: -9px;
+    list-style: none;
+    color: aquamarine;
+    font-size: 60px;
+    font-weight: 400;
+    position: relative;
+    top: 0;
+    animation: scroll 4.5s steps(3) infinite;
+    transition: transform 300ms linear;
+   
+}
+@keyframes scroll {
+    100% {
+        top: -245px;
+    }
+}
+
+.dynamic-text li span {
+    position: relative;
+}
+.dynamic-text li span::after{
+    left: 0;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #2F4F4F;
+    border-left: 3px solid #000;
+    animation: typing 1.5s steps(10) infinite;
+}
+/* animated list of .dynamic-text */
+@keyframes typing {
+    100% {
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+}
